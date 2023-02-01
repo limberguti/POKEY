@@ -8,6 +8,7 @@ import Login from "./Login";
 import PokeyLoggeado from "./PokeyLoggeado";
 import Nosotros from "./Nosotros";
 import Factura from "./Factura";
+import Vender from "./Vender";
 
 
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" exact component={<Login/>}/>
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/factura" element={<Factura />} />
+        <Route path="/vender" element={<Vender />} />
       </Routes>
       
     </BrowserRouter>

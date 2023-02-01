@@ -40,6 +40,7 @@ const Home = (children) => {
                             <li><a href="Inicio">Inicio</a></li>
                             <li><a href="Nosotros">Pokey</a></li>
                             <li><a href="Integrantes">Quienes Somos?</a></li>
+                            <li><a href="Vender">Vender</a></li>
                             
                             
                             
