@@ -1,5 +1,3 @@
-
-
 import React from "react";
 
 import "./App.css"
@@ -34,34 +32,48 @@ const Nosotros = () => (
 </section>
 
 
+
 <section className="texto">
+    <aside align="center">
+            <img src={imagenes("./ecofashionista.png")} alt="Publicidad" width="300" height="440" />
+            <br></br>
+    </aside>
 
     <p>Cada año, la industria textil produce alrededor de 92 millones de toneladas de basura, siendo solo
-        superada en impacto ecológico por la industria petrolera.
+        superada en impacto ecológico por la industria petrolera.</p>
         
-        Una de las razones de
-        porque la industria textil posee estos índices de contaminación es debido al fast fashion.
+    <p> Una de las razones de
+        porque la industria textil posee estos índices de contaminación es debido al fast fashion.</p>
         
-        Pero, ¿a qué se refiere el <strong>fast fashion</strong>? 
+     <p> Pero, ¿a qué se refiere el <strong>fast fashion</strong>? </p>
         
-        Esta es una industria que va dirigido a la elaboración de prendas, pero en grandes proporciones en
+      <p>Esta es una industria que va dirigido a la elaboración de prendas, pero en grandes proporciones en
         conjunto a tendencias que salen a la luz de manera seguida con una constante necesidad de
         innovación y una colocación de millones de prendas a precios accesibles y totalmente nuestro
-        alcance generando una compra apresurada. 
+        alcance generando una compra apresurada. </p>
         
-        Nosotros somos <strong>Pockey</strong>, y venimos a revolucionar tu forma de ver el mundo de la moda. Cuestionamos estas
+      <p>Nosotros somos <strong>Pockey</strong>, y venimos a revolucionar tu forma de ver el mundo de la moda. Cuestionamos estas
         prácticas y pensamos en soluciones innovadoras y sustentables. Podrás, a través de nuesta página web,
         comprar de negocios locales, muchísimo más verdes y accesibles que cualquier tienda de fast fashion, y te
         hablamos acerca de la moda circular, en donde tu closet no dejará de innovarse.
         
-    </p>
-
+    </p>      
+    <br></br>
+    <br></br>
     
-
+    <p1><strong>Consecuencias del Fast Fashion</strong></p1>
+    <br></br><br></br><br></br>
 </section>
 
+<section align="center">
 
-
+    <div class="flex-container1">
+    
+        <div class="flex-itemi"><img src={imagenes("./contaminacion.jpg")} alt="Conciencia" width="430" height="300" /></div>
+        <div class="flex-itemi"><img src={imagenes("./contaminacion2.jpg")} alt="Conciencia" width="430" height="300" /></div>
+        <div class="flex-itemi"><img src={imagenes("./contaminacion3.jpg")} alt="Conciencia" width="430" height="300" /></div>
+    </div>
+</section>
 
     <footer>
         <br></br>

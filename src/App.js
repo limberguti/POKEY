@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route, Link,useNavigate } from "react-router-dom";
 import Home from "./Home";
 import Inicio from "./Inicio";
@@ -7,6 +7,7 @@ import Integrantes from "./Integrantes";
 import Login from "./Login";
 import PokeyLoggeado from "./PokeyLoggeado";
 import Nosotros from "./Nosotros";
+import Factura from "./Factura";
 
 
 
@@ -22,12 +23,15 @@ function App() {
         <Route path="/pokeyloggeado" element={<PokeyLoggeado />} />
         <Route path="/" exact component={<Login/>}/>
         <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/factura" element={<Factura />} />
       </Routes>
       
     </BrowserRouter>
    
 
   );
+
+  
 
 
 }

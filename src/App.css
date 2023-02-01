@@ -32,7 +32,7 @@ footer{
   text-align: center; 
   background-color:black;
   color: #e0e0e0;
-  margin-top: 2rem;
+  margin-top: 8rem;
 }
 
 body{
@@ -274,6 +274,86 @@ body{
 
 /* cositas de pokey */
 
+.btncat{
+  position: relative;
+}
+
+.btncat .precio{
+  margin-top: 1rem;
+}
+
+.btncat .precio span{
+  font-weight: bold;
+}
+
+.boton-catalogo{
+  display: inline-block;
+  padding: 10px 25px;
+  background: #000;
+  color: floralwhite;
+  border: 2px solid floralwhite;
+  outline: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 30px;
+  margin-left: -50px;
+  position: absolute;
+}
+
+.popup{
+  width: 300px;
+  background: #fff;
+  border-radius: 5px;
+  position: relative;
+  top: 10%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 30px 30px;
+  color: #000;
+  position: absolute;
+  z-index: 9;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+}
+
+/* .popupMedio{
+  left: 90%;
+  color: #48e;
+} */
+
+.open-popup{
+  visibility: visible;
+}
+
+
+.popup svg{
+  width: 60px;
+  margin-top: -30px;
+  border-radius: 50%;
+  background-color: #Ffbd59;
+}
+
+.popup h2{
+  padding: 1rem;
+}
+
+.popup button{
+  width: 100%;
+  margin-top: 2rem;
+  padding: 10px 0;
+  background: #000;
+  color: #fff;
+  border: 0;
+  outline: none;
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  position: relative;
+}
+
 .logo-pokey img{
   width: 300px;
   display: block;
@@ -299,21 +379,12 @@ body{
 .producto{
   display: flex;
   flex-direction: column;
-  
-}
-
-
-.producto:hover{
-  box-shadow: 0 10px 20px rgba(0,0,0,0.20);
 }
 
 .descripcion-producto{
   padding: 1rem;
 }
 
-.imagen-producto:hover{
-  transform: scale(1.1,1.1);
-}
 
 .publicidad{
   display: flex;
@@ -347,6 +418,9 @@ ul, ol {
   background-color:#434343;
 }
 
+.imagen-producto:hover{
+  transform: scale(1.1, 1.1);
+}
 
 @media (max-width: 680px) {
 
@@ -441,20 +515,20 @@ border: none;
 }
 
 
-@media(max-width: 1200px) {   
-  form{
-      margin: calc(25% + 20px);
-      margin-top: 70px;
-      padding-top: 10px;
+@media(min-width: 650px) {
+  
+  .formulario h1{
+      margin:  100px;
   }
+
 }
 
-@media(max-width: 600px) {   
-  form{
-      margin: calc(15% + 10px);
-      margin-top: 70px;
-      padding-top: 10px;
-}
+
+@media(min-width: 150px) {
+
+  .formulario h1{
+      margin:  100px;
+  }
 }
 
 /* integrantes */
@@ -472,52 +546,80 @@ justify-content: center;
 align-items: center;
 
 }
+.flex-container1 {
+  display: flex;
+  background-color: rgb(224, 224, 224);
+  justify-content: center;
+  align-items: center;
+  }
+  
+.flex-itemi {
+    line-height: 10px;
+    margin: 10px;
+}
+.texto p1{
+  font-family: 'Krub', sans-serif;
+  font-size: 30px;
+  padding: 1em;
+  margin-left: 7em;
+  margin-right: 10em;
+  color:rgb(236,62,62);
+}
 /*Titulo col 1*/
 .flex-item1 {
-background-color: white;
-margin: 10px;
-text-align: center;
-line-height: 40px;
+  background-color: white;
+  width: 200px;
+  margin: 10px;
+  text-align: center;
+  line-height: 40px;
+}  
 
-}
-/*Col 1*/
-.flex-item2 {
-background-color: grey;
-line-height: 10px;
-}
-/*Contenido col1*/
 .flex-item3 {
-background-color: grey;
+  background-color: rgb(135, 135, 180);
+  width: 200px;
+  height: 210px;
+  margin: 10px;
+  text-align: center;
+  
+  }
 
-margin: 10px;
-text-align: center;
-line-height: 40px;
-}
+.flex-item2 {
+  background-color: rgb(135, 135, 180);
+  width: 230px;
+  height: 960px;
+  line-height: 10px;
+  }
+  
 /*Titulo col 2*/
 .flex-item4 {
-background-color: white;
-width: 200px;
-margin: 10px;
-text-align: center;
-line-height: 40px;
-}
+  background-color: white;
+  width: 380px;
+  margin: 10px;
+  text-align: center;
+  line-height: 40px;
+  
+  }
+  
 
 /*Col 2*/
 .flex-item5 {
-background-color: grey;
+background-color: rgb(135, 135, 180);
 width: 400px;
-  height: 899px;
+height: 960px;
 line-height: 10px;
+text-align: center;
 }
+
 /*Contenido col1*/
 .flex-item6 {
-background-color: grey;
-width: 380px;
-height: 200px;
-margin: 10px;
-text-align: center;
-line-height: 30px;
-}
+  background-color: rgb(116, 156, 209);
+  width: 380px;
+  height: 210px;
+  margin: 9px;
+  text-align: left;
+  line-height: 30px;
+  }
+  
 
 
 @media (max-width: 640px) {
@@ -528,25 +630,368 @@ line-height: 30px;
 
 }
 
-.price{
-  font-size: 18px;
-  font-weight: 900;
+/* factura */
+
+
+.form-sesion form {
+  width: 80%;
+  margin: 0 auto;
 }
-.btn-add-cart {
-  border: none;
-  background: none;
-  background-color: #000;
-  color: #fff;
-  padding: 15px 10px;
-  cursor: pointer;
-  transition: 0.5s;
+
+.form-sesion label,
+.form-sesion input {
+/* In order to define widths */
+display: inline-block;
 }
-.btn-add-cart:hover{
+
+.form-sesion label {
+width: 30%;
+/* Positions the label text beside the input */
+text-align: right;
+}
+
+.form-sesion label+input {
+width: 30%;
+/* Large margin-right to force the next element to the new-line
+          and margin-left to create a gutter between the label and input */
+margin: 0 30% 0 4%;
+}
+
+
+/* Only the submit button is matched by this selector,
+      but to be sure you could use an id or class for that button */
+
+.form-sesion input+input {
+float: right;
+}
+
+.texto-login{
+  margin-top: 1rem;
+}
+
+.texto-login a{
+  text-decoration: none;
+  color: #Ffbd59;
+}
+
+.logo {
+  margin: 0 auto;
+  width: auto;
+  height: auto;
   border: none;
-  background: none;
-  background-color: rgb(252, 202, 95);
-  color: rgb(0, 0, 0);
-  padding: 15px 10px;
-  cursor: pointer;
-  transition: 0.5s;
+  fill: #Ffbd59;
+}
+
+.logoholder img{
+  width: 300px;
+}
+
+.me {
+  width: 30%;
+  margin-top: 8rem;
+}
+
+.info {
+  width: 30%;
+  margin-top: 8rem;
+}
+
+.info a{
+  text-decoration: none;
+  color: #000;
+}
+
+.bank {
+  width: 26%;
+  margin-top: 8rem;
+}
+
+.section {
+  margin: 1rem 0 0;
+  background-color: gray;
+}
+
+.smallme {
+  display: inline-block;
+  text-transform: uppercase;
+  margin: 0 0 2rem 0;
+  font-size: .9rem
+}
+
+.client {
+  margin: 0 0 3rem 0
+}
+
+
+.details input {
+  display: inline;
+  margin: 0 0 0 .5rem;
+  border: none;
+  width: 50px;
+  min-width: 0;
+  background: transparent;
+  text-align: left
+}
+
+
+.invoice_detail{
+border: solid 1px #Ffbd59;
+padding:10px;
+height:25px;
+text-align:center
+}
+
+.rate:before,
+.price:before,
+.sum:before,
+.tax:before,
+#total_price:before,
+#total_tax:before {
+  content: '$'
+}
+
+.invoicelist-body {
+  margin: 1rem
+}
+
+.invoicelist-body table {
+  width: 100%
+}
+
+.invoicelist-body thead {
+  text-align: left;
+  border-bottom: 1pt solid #666
+}
+
+.invoicelist-body td,
+.invoicelist-body th {
+  position: relative;
+  padding: 1rem
+}
+
+.invoicelist-body tr:nth-child(even) {
+  background: #ccc
+}
+
+.invoicelist-body tr:hover .removeRow {
+  display: block
+}
+
+.invoicelist-body input {
+  display: inline;
+  margin: 0;
+  border: none;
+  width: 80%;
+  min-width: 0;
+  background: transparent;
+  text-align: left
+}
+
+.invoicelist-body .control {
+  display: inline-block;
+  color: black;
+  background: #Ffbd59;
+  padding: 3px 7px;
+  font-size: .9rem;
+  text-transform: uppercase;
+  cursor: pointer
+}
+
+.invoicelist-body .control:hover {
+  background: #f36464
+}
+
+.invoicelist-body .newRow {
+  margin: .5rem 0;
+  float: left
+}
+
+.invoicelist-body .removeRow {
+  display: none;
+  position: absolute;
+  top: .1rem;
+  bottom: .1rem;
+  left: -1.3rem;
+  font-size: .7rem;
+  border-radius: 3px 0 0 3px;
+  padding: .5rem
+}
+
+.invoicelist-footer {
+  margin: 1rem
+}
+
+.invoicelist-footer table {
+  float: right;
+  width: 25%
+}
+
+.invoicelist-footer table td {
+  padding: 1rem 2rem 0 1rem;
+  text-align: right
+}
+
+.invoicelist-footer table tr:nth-child(2) td {
+  padding-top: 0
+}
+
+.invoicelist-footer table #total_price {
+  font-size: 2rem;
+  color: #Ffbd59;
+}
+
+.note {
+  margin: 1rem
+}
+
+.hidenote .note {
+  display: none
+}
+
+.note h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold
+}
+
+
+.container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem
+}
+
+
+
+.group:after,
+.row:after,
+.invoicelist-footer:after {
+  content: "";
+  display: table;
+  clear: both
+}
+
+
+.row {
+  margin-top: 0.9rem;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  font-size: 0;
+  background-color: #C3b7a3; 
+}
+
+.row-2{
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  font-size: 0;
+  background-color: var(--gris);
+  padding: 1rem;
+}
+
+.col,
+.logoholder,
+.me,
+.info,
+.bank,
+[class*="col-"] {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0 1rem;
+  min-height: 1px
+}
+
+.col-4 {
+  width: 25%
+}
+
+.col-3 {
+  width: 33.33%
+}
+
+.col-2 {
+  width: 50%
+}
+
+.col-2-4 {
+  width: 75%
+}
+
+.col-1 {
+  width: 100%
+}
+
+.text-center {
+  text-align: center
+}
+
+.text-right {
+  text-align: right
+}
+
+.control-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #009688;
+  color: white;
+  line-height: 4rem;
+  height: 4rem
+}
+
+.control-bar .slogan {
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-right: 2rem
+}
+
+.control-bar label {
+  margin-right: 1rem
+}
+
+.control-bar a {
+  margin: 0;
+  padding: .5em 1em;
+  background: rgba(255, 255, 255, 0.8)
+}
+
+.control-bar a:hover {
+  background: #fff
+}
+
+.control-bar input {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  padding: .5rem 0;
+  max-width: 30px;
+  text-align: center
+}
+
+.control-bar input:hover {
+  background: rgba(255, 255, 255, 0.3)
+}
+
+.hidetax .taxrelated {
+  display: none
+}
+
+.showtax .notaxrelated {
+  display: none
+}
+
+.hidedate .daterelated {
+  display: none
+}
+
+.showdate .notdaterelated {
+  display: none
 }
