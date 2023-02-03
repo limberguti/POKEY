@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./App.css"
 import Modal from "./Modal";
+import Cart from "./Cart"
+
 
 
 
@@ -8,10 +10,15 @@ import Modal from "./Modal";
 const imagenes = require.context('./imagenes/');
 
 
-
-
 const Home = (children) => {
+    const [cart, setCart] = useState([]);
+    const [total, setTotal] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
+    const [productCount, setProductCount] = useState(0);
+    const clearCart = () => {
+        setCart([]);
+        setTotal(0);
+    };
 
     const open = () => {
         setIsOpen(true);
@@ -21,41 +28,168 @@ const Home = (children) => {
         setIsOpen(false);
     };
 
+    const addToCart = product => {
+        const itemIndex = cart.findIndex(item => item.id === product.id);
+        if (itemIndex === -1) {
+            setCart([...cart, { ...product, quantity: 1 }]);
+            setTotal(total + product.price);
+            setProductCount(productCount + 1);
+        } else {
+            const updatedCart = [...cart];
+            updatedCart[itemIndex].quantity++;
+            setCart(updatedCart);
+            setTotal(total + product.price);
+            setProductCount(productCount + 1);
+        }
+    };
+    const removeProduct = (id, quantity) => {
+        const newCart = [...cart];
+        const productIndex = newCart.findIndex(product => product.id === id);
+        const product = newCart[productIndex];
+
+        if (product.quantity <= quantity) {
+            newCart.splice(productIndex, 1);
+            setTotal(total - product.price * product.quantity);
+        } else {
+            product.quantity -= quantity;
+            setTotal(total - product.price * quantity);
+        }
+
+        setCart(newCart);
+    };
+
+    const [showPopup, setShowPopup] = useState(false);
+
+    const handleImageClick = () => {
+        setShowPopup(!showPopup);
+    };
+
     return (
 
         <div class="main">
             <header >
-                <img align ="center" src={imagenes("./logo.png")} alt="Logo" height="200" />
+                <div class="logo-pokey">
+                    <img src={imagenes("./logo.png")} />
+                </div>
 
-                
-               
-                
+
                 <div class="conteiner">
-                <a href="Factura" ><img align="right" src={imagenes("./carrito.png")} alt="carro" height="40" /></a>
-                <br></br>
+                    <div style={{ position: 'relative' }}>
+                        <img onClick={handleImageClick} src={imagenes("./carrito.png")} alt="Image" width={50} align="right" />
+                        <span style={{
+                            position: 'absolute',
+                            top: 0,
+                            right: 0,
+                            background: 'red',
+                            color: 'white',
+                            borderRadius: '50%',
+                            padding: '0.3em',
+                        }}>{productCount}</span>
+                    </div>
+                    {showPopup && (
+                        <div style={{
+                            position: 'fixed', top: "100%", left: 50, width: '100%', height: '100%', display: 'center', justifyContent: 'center', alignItems: 'center'
+                        }}><div style={{
+                            width: '370px',
+                            background: 'black',
+                            borderRadius: 3,
+                            top: -720,
+                            left: '84.3%',
+                            transform: 'translate(-50%, 0%)',
+                            textAlign: 'center',
+                            padding: 15,
+                            color: 'white',
+                            position: 'absolute',
+                            zIndex: 9,
+                            transition: 'transform 0.4s, top 0.4s', alignItems: 'center', boxShadow: '0px 0px 10px #000000',
+                        }}>Tu carrito<button style={{
+                            position: 'absolute',
+                            top: 0,
+                            right: 0,
+                            background: '#000',
+                            color: '#fff'
+                        }} onClick={() => setShowPopup(false)}>X</button>
+                                <div style={{
+                                    width: '370px',
+                                    background: '#b9b9b9',
+                                    borderRadius: 3,
+                                    top: "100%",
+                                    left: '50%',
+                                    transform: 'translate(-50%, 0%)',
+                                    textAlign: 'center',
+                                    padding: 32,
+                                    color: '#000',
+                                    position: 'absolute', boxShadow: '0px 0px 10px #000000',
+
+                                    transition: 'transform 0.4s, top 0.4s'
+                                }}>
+                                    <ul>
+                                        {cart.map(item => (
+
+                                            <p key={item.id}>
+                                                <table  >
+
+                                                    <tbody>
+                                                        <tr>
+                                                            <td rowSpan={3}><img src={item.image} alt={item.name} style={{ width: "70px", height: "70px" }} /></td>
+                                                            <td> {item.name}</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td >{item.price}.00 $</td>
+
+
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td> {item.quantity} Unidades</td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+
+
+                                            </p>
+                                        ))}
+                                    </ul>
+
+
+                                    <h3>Total: ${total}</h3>
+
+                                    <a href="Factura" class="button">Ver Factura</a>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    )}
+
+
+                    <br></br>
                     <nav class="navegacion" >
-                    
+
                         <ul>
-                            
+
                             <li><a href="Inicio">Inicio</a></li>
                             <li><a href="Nosotros">Pokey</a></li>
                             <li><a href="Integrantes">Quienes Somos?</a></li>
                             <li><a href="Vender">Vender</a></li>
-                            
-                            
-                            
+
+
+
                         </ul>
-                        
+
                     </nav>
-                   
+
                 </div>
 
 
             </header>
 
+
+
             <div class="flex-body">
-
-
 
                 <section class="parteBody">
 
@@ -107,10 +241,17 @@ const Home = (children) => {
                                         cursor: 'pointer',
                                         textTransform: 'uppercase',
                                         position: 'relative'
-                                    }} onclick={close}>comprar</button>
+                                    }} onClick={() => addToCart({ id: 1, name: "Camisa Manga Corta Talla G", price: 12, image: imagenes("./modelo a.png") })}>Comprar
+                                    </button>
+
 
 
                                 </Modal>
+
+
+
+
+
 
                             </div>
                         </div>
@@ -145,6 +286,7 @@ const Home = (children) => {
                                     <h2>Sombrero + Camisa  Talla M</h2>
                                     <p>Adquirido en mi viaje a Ibarra, vendo camisa artesanal semi-nueva con sombrero de alta calidad</p>
                                     <p class="precio"><span>Precio:</span> 8$</p>
+
                                     <button style={{
                                         width: '100px',
                                         marginTop: '2rem',
@@ -158,7 +300,8 @@ const Home = (children) => {
                                         cursor: 'pointer',
                                         textTransform: 'uppercase',
                                         position: 'relative'
-                                    }} onclick={close}>comprar</button>
+                                    }} onClick={() => addToCart({ id: 2, name: "Sombrero + Camisa  Talla M", price: 8, image: imagenes("./modelo b.png") })}>Comprar
+                                    </button>
 
 
                                 </Modal>
@@ -210,7 +353,9 @@ const Home = (children) => {
                                         cursor: 'pointer',
                                         textTransform: 'uppercase',
                                         position: 'relative'
-                                    }} onclick={close}>comprar</button>
+                                    }} onClick={() => addToCart({ id: 3, name: "Pantalon Corte en V Talla G", price: 5, image: imagenes("./modelo c.png") })}>Comprar
+                                    </button>
+
 
 
                                 </Modal>
@@ -262,8 +407,8 @@ const Home = (children) => {
                                         cursor: 'pointer',
                                         textTransform: 'uppercase',
                                         position: 'relative'
-                                    }} onclick={close}>comprar</button>
-
+                                    }} onClick={() => addToCart({ id: 4, name: "Pulseras Multicolores Paquete", price: 1, image: imagenes("./modelo d.png") })}>Comprar
+                                    </button>
 
                                 </Modal>
 
@@ -314,7 +459,8 @@ const Home = (children) => {
                                         cursor: 'pointer',
                                         textTransform: 'uppercase',
                                         position: 'relative'
-                                    }} onclick={close}>comprar</button>
+                                    }} onClick={() => addToCart({ id: 5, name: "Sudadera Verde Talla G Casi-Nuevo", price: 15, image: imagenes("./modelo e.png") })}>Comprar
+                                    </button>
 
 
                                 </Modal>
@@ -367,7 +513,10 @@ const Home = (children) => {
                                         cursor: 'pointer',
                                         textTransform: 'uppercase',
                                         position: 'relative'
-                                    }} onclick={close}>comprar</button>
+                                    }} onClick={() => addToCart({ id: 6, name: "Vestido Casi-Nuevo Corte en T", price: 10, image: imagenes("./modelo f.png") })}>Comprar
+                                    </button>
+
+
 
 
                                 </Modal>
@@ -420,7 +569,9 @@ const Home = (children) => {
                                         cursor: 'pointer',
                                         textTransform: 'uppercase',
                                         position: 'relative'
-                                    }} onclick={close}>comprar</button>
+                                    }} onClick={() => addToCart({ id: 7, name: "Camiseta Blanco y Negro Semi-Nuevo", price: 5, image: imagenes("./modelo g.png") })}>Comprar
+                                    </button>
+
 
 
                                 </Modal>
@@ -473,8 +624,8 @@ const Home = (children) => {
                                         cursor: 'pointer',
                                         textTransform: 'uppercase',
                                         position: 'relative'
-                                    }} onclick={close}>comprar</button>
-
+                                    }} onClick={() => addToCart({ id: 8, name: "Camisa con bordados artesanales", price: 15, image: imagenes("./modelo h.png") })}>Comprar
+                                    </button>
 
                                 </Modal>
 
@@ -516,9 +667,8 @@ const Home = (children) => {
             </div>
 
         </div>
-    )
+    );
 }
 
-    ;
 
 export default Home;

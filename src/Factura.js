@@ -20,7 +20,7 @@ const Factura = () => (
                     <ul>
                         <li><a href="Inicio">Inicio</a></li>
                         <li><a href="Nosotros">Pokey</a></li>
-                        <li><a href="Pokey">Venta/Intercambios</a></li>
+                        <li><a href="Home">Venta/Intercambios</a></li>
                         <li><a href="Integrantes">Quienes Somos?</a></li>
                     </ul>
 
@@ -35,7 +35,7 @@ const Factura = () => (
 
             <div class="me">
                 <p contenteditable>
-                    <strong>Estamos ubicados en las calles Eduardo Salazar Gómez y Diego Noboa, Casa #8, atras de Akkon Sport</strong>
+                    <strong>Estamos ubicados en las calles Eduardo Salazar Gómez y Diego Noboa, Casa #8, atras de Akkon Sport</strong><br></br>
                     Sangolqui<br></br>
                     Ecuador
 
@@ -44,7 +44,7 @@ const Factura = () => (
 
             <div class="info">
                 <p contenteditable>
-                    Web: <a href="#">www.Duck.com</a><br></br>
+                    Web: <a href="#">www.Pokey.com</a><br></br>
                     E-mail: <a href="#">lmde2@espe.edu.ec</a><br></br>
                     Tel: +256 99 5225 177<br></br>
 
@@ -108,7 +108,27 @@ const Factura = () => (
 
         </div>
 
-        
+        <div class="row-2 section" style={{marginTop:"-1rem"}} >
+        <div class="col-12" >
+            <table style={{width:"100%"}}>
+                <thead contenteditable class="invoice_detail" >
+                <th width="25%"  >Vendedor</th>
+                <th width="25%">Orden de compra </th>
+                <th width="20%">Enviar por</th>
+                <th width="30%">Términos y condiciones</th>
+                </thead>
+                <tbody  contenteditable>
+                <tr class="invoice_detail">
+            <td width="25%" >John Doe</td>
+             <td width="25%">#PO-2020 </td>
+            <td width="20%">DHL</td>
+            <td width="30%">Pago al contado</td>
+           </tr>
+                </tbody>
+            </table>
+           
+        </div>
+        </div>
 
         <div class="invoicelist-body">
             <table>

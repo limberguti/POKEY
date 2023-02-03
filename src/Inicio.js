@@ -8,9 +8,21 @@ const Inicio = () => (
         <div class = "inicio">
         <div class="gif-inicio">
 
-        <video autoplay loop muted plays-inline class="back-video">
-            <source src={imagenes("./inicio.mp4")} type="video/mp4" />
-        </video>
+        <video
+      autoPlay
+      loop
+      poster="background.jpg"
+      style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        zIndex: -1,
+      }}
+    >
+      <source src={imagenes("./inicio.mp4")} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
         <nav class="navegacion-inicio">
             <img src={imagenes("./logo2.png")}  class="logo" width="500" />
